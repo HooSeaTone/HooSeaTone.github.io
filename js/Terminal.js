@@ -20,5 +20,9 @@ function browserRedirect() {
     }
 	
 }
-browserRedirect();
+//browserRedirect();
+
+
+
+
 </script>
