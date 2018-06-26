@@ -7,16 +7,20 @@
 	
 	
 <body class="body">
+	<div class="content">
+	&nbsp&nbsp&nbsp&nbspBMI指数用于评估一个人体重是否适当。其定义为“身高”除以“体重的平方”。您可以输入您的身高和体重，并点击“计算BMI”按钮，以获得BMI指数评估。
+	<br/><br/>
+	</div>
 	<div>
 	<label>体重</label>
 	<input id="weight" type="number" placeholder="请输入体重（公斤）"></input>
 	</div>	
 	<div>
 	<label>身高</label>
-	<input id="weight" type="number" placeholder="请输入身高（米）"></input>
+	<input id="height" type="number" placeholder="请输入身高（米）"></input>
 	</div>	
 	<div>
-	<textarea id="myshow" class="textarea" cols="80" rows="15" >  </textarea>
+	<textarea id="myshow" class="textarea" cols="80" rows="10" >  </textarea>
 	</div>
 	
 	<button type="button" onclick="showBMI()">计算BMI</button>
@@ -27,9 +31,9 @@
 	shw.val("结果显示区域： ");
 	
 	function showBMI() {
-		var height = $("#height");
+		var height = $("#height");		
 		var weight = $('#weight');		
-		var BMI = weight / (height * height);
+		var BMI = weight.val() / (height.val() * height.val());
 		BMI = BMI.toFixed(1);
 		evaluateBMI(BMI);		
 		return;
@@ -37,15 +41,15 @@
 	
 	function evaluateBMI ( _BMI ) {
 		if ( _BMI <= 18.5 ) {
-			log("您的体重属于过轻(BMI 0～18.5）");	
+			log("BMI: "+ _BMI +"。    您的体重属于过轻(BMI 0～18.5）");	
 		} else if ( _BMI > 18.5 && _BMI <= 25 ) {
-			log("您的体重属于正常(BMI 18.5～25）");
+			log("BMI: "+ _BMI +"。    您的体重属于正常(BMI 18.5～25）");
 		} else if ( _BMI > 25 && _BMI <= 28 ) {
-			log("您的体重属于过重(BMI 25～28）");
+			log("BMI: "+ _BMI +"。    您的体重属于过重(BMI 25～28）");
 		} else if ( _BMI > 28 && _BMI <= 32 ) {
-			log("您的体重属于肥胖(BMI 28～32）");
+			log("BMI: "+ _BMI +"。    您的体重属于肥胖(BMI 28～32）");
 		} else {
-			log("您的体重属于严重肥胖(BMI 32～ ）");
+			log("BMI: "+ _BMI +"。    您的体重属于严重肥胖(BMI 32～ ）");
 		}
 		return;
 	}
