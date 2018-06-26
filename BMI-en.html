@@ -1,0 +1,62 @@
+<html>
+	<head>	
+	  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>	  
+	  <link rel="stylesheet" href="./style.css">	 
+	</head>
+	
+	
+	
+<body class="body">
+	<div>
+	<label>Weight</label>
+	<input id="weight" type="number" placeholder="Please input weight (kg)."></input>
+	</div>	
+	<div>
+	<label>Height</label>
+	<input id="height" type="number" placeholder="Please input height (m)."></input>
+	</div>	
+	<div>
+	<textarea id="myshow" class="textarea" cols="80" rows="15" >  </textarea>
+	</div>
+	
+	<button type="button" onclick="showBMI()"> Calculate BMI</button>
+	
+	<script>
+	
+	var shw = $("#myshow");
+	shw.val("display area:  ");
+	
+	function showBMI() {
+		var height = $("#height");
+		var weight = $('#weight');		
+		var BMI = weight / (height * height);
+		BMI = BMI.toFixed(1);
+		evaluateBMI(BMI);		
+		return;
+	}
+	
+	function evaluateBMI ( _BMI ) {
+		if ( _BMI <= 18.5 ) {
+			log("You are underweight (BMI 0～18.5）.");	
+		} else if ( _BMI > 18.5 && _BMI <= 25 ){
+			log("Your weight is normal (BMI 18.5～25）.");
+		} else if ( _BMI > 25 && _BMI <= 28 ) {
+			log("You are overweight (BMI 25～28）.");
+		} else if ( _BMI > 28 && _BMI <= 32 ) {
+			log("You are moderately obese (BMI 28～32）.");
+		} else {
+			log("You are severely obese (BMI 32～ ）.");
+		}
+		return;
+	}
+	
+	function log(text) {
+		//var s = shw.val() + text;
+		//shw.val(s);
+		shw.val(text);
+		return;
+	}
+	
+	</script>
+</body>
+</html>
