@@ -45,7 +45,7 @@
 	<script>
 	
 	var shw = $("#myshow");
-	shw.val("结果显示区域： ");
+	shw.html("结果显示区域： ");
 	
 	function showBMI() {
 		var height = $("#height");		
@@ -72,9 +72,9 @@
 	}
 	
 	function log(text) {
-		//var s = shw.val() + text;
-		//shw.val(s);
-		shw.val(text);
+		//var s = shw.html() + text;
+		//shw.html(s);
+		shw.html(text);
 		return;
 	}
 	

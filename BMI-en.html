@@ -48,7 +48,7 @@
 	<script>
 	
 	var shw = $("#myshow");
-	shw.val("display area:  ");
+	shw.html("display area:  ");
 	
 	function showBMI() {
 		var height = $("#height");
@@ -75,9 +75,9 @@
 	}
 	
 	function log(text) {
-		//var s = shw.val() + text;
-		//shw.val(s);
-		shw.val(text);
+		//var s = shw.html() + text;
+		//shw.html(s);
+		shw.html(text);
 		return;
 	}
 	
