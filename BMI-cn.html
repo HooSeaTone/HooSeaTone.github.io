@@ -1,13 +1,28 @@
-<html>
-	<head>
-	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	  <script src="./js/jquery-3.3.1.min.js"></script>	  
-	  <link rel="stylesheet" type="text/css" href="./style.css">	 
-	</head>
-	
-	
-	
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 <body class="body">
+	<div class="header">
+		<h5> 
+			<table  border="1"> 	
+			<tr align="center">
+				<td><a href="./index.html" >Home主页</a></td>
+				<td><a href="./BMI-cn.html">BMI中文</a></td>
+				<td><a href="./BMI-en.html" >BMI English</a></td>
+			</tr>	
+			</table>
+		</h5>
+	</div>
+<div class="container">
+	
 	<div class="content">
 	&nbsp&nbsp&nbsp&nbspBMI指数用于评估一个人体重是否适当。其定义为“体重”除以“身高的平方”。您可以输入您的身高和体重，并点击“计算BMI”按钮，以获得BMI指数评估。
 	<br/><br/>
@@ -26,6 +41,7 @@
 	
 	<button type="button" onclick="showBMI()">计算BMI</button>
 	
+</div>
 	<script>
 	
 	var shw = $("#myshow");

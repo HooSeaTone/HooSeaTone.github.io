@@ -1,3 +1,3 @@
 # HooSeaTone.github.io
 
-My First Web Page.
+A Web Page for personal web learning.
