@@ -35,18 +35,17 @@
 	<div>
 	<label>体重</label>
 	<input id="weight" type="number" placeholder="请输入体重（公斤）"></input>
-	</div>		
-	<div>
-	<textarea id="myshow" class="textarea" cols="80" rows="10" >  </textarea>
-	</div>
-	
+	</div>	
 	<button type="button" onclick="showBMI()">计算BMI</button>
-	
+	<p>&nbsp</p>
+	<div id="myshow">		
+		<h4><p> </p></h4>
+	</div>
 </div>
 	<script>
 	
 	var shw = $("#myshow");
-	shw.html("结果显示区域： ");
+	shw.html("结果待出：");
 	
 	function showBMI() {
 		var height = $("#height");		
@@ -66,8 +65,10 @@
 			log("BMI: "+ _BMI +"。    您的体重属于过重(BMI 25～28）");
 		} else if ( _BMI > 28 && _BMI <= 32 ) {
 			log("BMI: "+ _BMI +"。    您的体重属于肥胖(BMI 28～32）");
-		} else {
+		} else if ( _BMI > 32 ) {
 			log("BMI: "+ _BMI +"。    您的体重属于严重肥胖(BMI 32～ ）");
+		} else  {
+			log("BMI: "+ _BMI +"。    BMI计算过程出错！");
 		}
 		return;
 	}
