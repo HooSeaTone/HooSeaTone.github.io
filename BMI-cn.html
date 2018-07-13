@@ -1,85 +1,102 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
-  <title>HooSeaTone</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<title>HooSeaTone</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<script src="./js/jquery-3.3.1.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
 </head>
+
 <body class="body">
 	<div class="header">
-		<h5> 
-			<table  border="1"> 	
-			<tr align="center">
-				<td><a href="./index.html" >&nbsp Home主页 &nbsp</a></td>
-				<td><a href="./BMI-cn.html">&nbsp BMI中文 &nbsp</a></td>
-				<td><a href="./BMI-en.html" >&nbsp BMI English &nbsp</a></td>
-			</tr>	
+		<h5>
+			<table border="1">
+				<tr align="center">
+					<td>
+						<a href="./index.html">&nbsp Home主页 &nbsp</a>
+					</td>
+					<td>
+						<a href="./BMI-cn.html">&nbsp BMI中文 &nbsp</a>
+					</td>
+					<td>
+						<a href="./BMI-en.html">&nbsp BMI English &nbsp</a>
+					</td>
+				</tr>
 			</table>
 		</h5>
 	</div>
-<div class="container">
-	
-	<div class="content">
-	&nbsp&nbsp&nbsp&nbspBMI指数用于评估一个人体重是否适当。其定义为“体重”除以“身高的平方”。您可以输入您的身高和体重，并点击“计算BMI”按钮，以获得BMI指数评估。
-	<br/><br/>
-	</div>	
-	<div>
-	<label>身高</label>
-	<input id="height" type="number" placeholder="请输入身高（米）"></input>
+	<div class="container">
+
+		<div class="content">
+			&nbsp&nbsp&nbsp&nbspBMI指数用于评估一个人体重是否适当。其定义为“体重”除以“身高的平方”。您可以输入您的身高和体重，并点击“计算BMI”按钮，以获得BMI指数评估。
+			<br/>
+			<br/>
+		</div>
+		<div>
+			<label>身高</label>
+			<input id="height" type="number" placeholder="请输入身高（米）"></input>
+			<br/>
+			<br/>
+		</div>
+		<div>
+			<label>体重</label>
+			<input id="weight" type="number" placeholder="请输入体重（公斤）"></input>
+			<br/>
+			<br/>
+		</div>
+		<button type="button" onclick="showBMI()">计算BMI</button>
+		<br/>
+		<br/>
+		<div id="myshow">
+			<h4>
+				<p> </p>
+			</h4>
+		</div>
 	</div>
-	<div>
-	<label>体重</label>
-	<input id="weight" type="number" placeholder="请输入体重（公斤）"></input>
-	</div>	
-	<button type="button" onclick="showBMI()">计算BMI</button>
-	<p>&nbsp</p>
-	<div id="myshow">		
-		<h4><p> </p></h4>
-	</div>
-</div>
 	<script>
-	
-	var shw = $("#myshow");
-	shw.html("结果待出：");
-	
-	function showBMI() {
-		var height = $("#height");		
-		var weight = $('#weight');		
-		var BMI = weight.val() / (height.val() * height.val());
-		BMI = BMI.toFixed(1);
-		evaluateBMI(BMI);		
-		return;
-	}
-	
-	function evaluateBMI ( _BMI ) {
-		if ( _BMI <= 18.5 ) {
-			log("BMI: "+ _BMI +"。    您的体重属于过轻(BMI 0～18.5）");	
-		} else if ( _BMI > 18.5 && _BMI <= 25 ) {
-			log("BMI: "+ _BMI +"。    您的体重属于正常(BMI 18.5～25）");
-		} else if ( _BMI > 25 && _BMI <= 28 ) {
-			log("BMI: "+ _BMI +"。    您的体重属于过重(BMI 25～28）");
-		} else if ( _BMI > 28 && _BMI <= 32 ) {
-			log("BMI: "+ _BMI +"。    您的体重属于肥胖(BMI 28～32）");
-		} else if ( _BMI > 32 ) {
-			log("BMI: "+ _BMI +"。    您的体重属于严重肥胖(BMI 32～ ）");
-		} else  {
-			log("BMI: "+ _BMI +"。    BMI计算过程出错！");
+
+		var shw = $("#myshow");
+		shw.html("结果待出：");
+
+		function showBMI() {
+			var height = $("#height");
+			var weight = $('#weight');
+			var BMI = weight.val() / (height.val() * height.val());
+			BMI = BMI.toFixed(1);
+			evaluateBMI(BMI);
+			return;
 		}
-		return;
-	}
-	
-	function log(text) {
-		//var s = shw.html() + text;
-		//shw.html(s);
-		shw.html(text);
-		return;
-	}
-	
+
+		function evaluateBMI(_BMI) {
+			if (_BMI <= 18.5) {
+				log("BMI: " + _BMI + "。    您的体重属于过轻(BMI 0～18.5）");
+			} else if (_BMI > 18.5 && _BMI <= 25) {
+				log("BMI: " + _BMI + "。    您的体重属于正常(BMI 18.5～25）");
+			} else if (_BMI > 25 && _BMI <= 28) {
+				log("BMI: " + _BMI + "。    您的体重属于过重(BMI 25～28）");
+			} else if (_BMI > 28 && _BMI <= 32) {
+				log("BMI: " + _BMI + "。    您的体重属于肥胖(BMI 28～32）");
+			} else if (_BMI > 32) {
+				log("BMI: " + _BMI + "。    您的体重属于严重肥胖(BMI 32～ ）");
+			} else {
+				log("BMI: " + _BMI + "。    BMI计算过程出错！");
+			}
+			return;
+		}
+
+		function log(text) {
+			//var s = shw.html() + text;
+			//shw.html(s);
+			shw.html(text);
+			return;
+		}
+
 	</script>
 </body>
+
 </html>

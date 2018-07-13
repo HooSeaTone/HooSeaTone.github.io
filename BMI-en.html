@@ -1,88 +1,107 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
-  <title>HooSeaTone</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<title>HooSeaTone</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<script src="./js/jquery-3.3.1.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
 </head>
+
 <body class="body">
 	<div class="header">
-		<h5> 
-			<table  border="1"> 	
-			<tr align="center">
-				<td><a href="./index.html" >&nbsp Home主页 &nbsp</a></td>
-				<td><a href="./BMI-cn.html">&nbsp BMI中文 &nbsp</a></td>
-				<td><a href="./BMI-en.html" >&nbsp BMI English &nbsp</a></td>
-			</tr>	
+		<h5>
+			<table border="1">
+				<tr align="center">
+					<td>
+						<a href="./index.html">&nbsp Home主页 &nbsp</a>
+					</td>
+					<td>
+						<a href="./BMI-cn.html">&nbsp BMI中文 &nbsp</a>
+					</td>
+					<td>
+						<a href="./BMI-en.html">&nbsp BMI English &nbsp</a>
+					</td>
+				</tr>
 			</table>
 		</h5>
 	</div>
 
 	<div class="container">
 
-	<div class="content">
-	 &nbsp&nbsp&nbsp&nbsp The body mass index (BMI) or Quetelet index is a value derived from the mass (weight) and height of an individual. The BMI is defined as the body mass divided by the square of the body height, and is universally expressed in units of kg/m2, resulting from mass in kilograms and height in metres. 
-	<br/>&nbsp&nbsp&nbsp&nbsp The BMI is an attempt to quantify the amount of tissue mass (muscle, fat, and bone) in an individual, and then categorize that person as underweight, normal weight, overweight, or obese based on that value.
-	"source: wiki"
-	<br/><br/>
-	</div>	
-	<div>
-	<label>Height</label>
-	<input id="height" type="number" placeholder="Please input height (m)."></input>
-	</div>	
-	<div>
-	<label>Weight</label>
-	<input id="weight" type="number" placeholder="Please input weight (kg)."></input>
-	</div>		
-	<button type="button" onclick="showBMI()"> Calculate BMI</button>
-	<p>&nbsp</p>
-	<div id="myshow">		
-		<h4><p> </p></h4>
+		<div class="content">
+			&nbsp&nbsp&nbsp&nbsp The body mass index (BMI) or Quetelet index is a value derived from the mass (weight) and height of
+			an individual. The BMI is defined as the body mass divided by the square of the body height, and is universally expressed
+			in units of kg/m2, resulting from mass in kilograms and height in metres.
+			<br/>&nbsp&nbsp&nbsp&nbsp The BMI is an attempt to quantify the amount of tissue mass (muscle, fat, and bone) in an individual,
+			and then categorize that person as underweight, normal weight, overweight, or obese based on that value. "source: wiki"
+			<br/>
+			<br/>
+		</div>
+		<div>
+			<label>Height</label>
+			<input id="height" type="number" placeholder="Please input height (m)."></input>
+			<br/>
+			<br/>
+		</div>
+		<div>
+			<label>Weight</label>
+			<input id="weight" type="number" placeholder="Please input weight (kg)."></input>
+			<br/>
+			<br/>
+		</div>
+		<button type="button" onclick="showBMI()"> Calculate BMI</button>
+		<br/>
+		<br/>
+		<div id="myshow">
+			<h4>
+				<p> </p>
+			</h4>
+		</div>
 	</div>
-</div>
 	<script>
-	
-	var shw = $("#myshow");
-	shw.html("display here:  ");
-	
-	function showBMI() {
-		var height = $("#height");
-		var weight = $('#weight');		
-		var BMI = weight.val() / (height.val() * height.val());
-		BMI = BMI.toFixed(1);
-		evaluateBMI(BMI);		
-		return;
-	}
-	
-	function evaluateBMI ( _BMI ) {
-		if ( _BMI <= 18.5 ) {
-			log("BMI: " + _BMI + ".    You are underweight (BMI 0～18.5）.");	
-		} else if ( _BMI > 18.5 && _BMI <= 25 ){
-			log("BMI: " + _BMI + ".    Your weight is normal (BMI 18.5～25）.");
-		} else if ( _BMI > 25 && _BMI <= 28 ) {
-			log("BMI: " + _BMI + ".    You are overweight (BMI 25～28）.");
-		} else if ( _BMI > 28 && _BMI <= 32 ) {
-			log("BMI: " + _BMI + ".    You are moderately obese (BMI 28～32）.");
-		} else if (_BMI > 32) {
-			log("BMI: " + _BMI + ".    You are severely obese (BMI 32～ ）.");
-		} else {
-			log("BMI: " + _BMI + ".    Calculation error!");
+
+		var shw = $("#myshow");
+		shw.html("display here:  ");
+
+		function showBMI() {
+			var height = $("#height");
+			var weight = $('#weight');
+			var BMI = weight.val() / (height.val() * height.val());
+			BMI = BMI.toFixed(1);
+			evaluateBMI(BMI);
+			return;
 		}
-		return;
-	}
-	
-	function log(text) {
-		//var s = shw.html() + text;
-		//shw.html(s);
-		shw.html(text);
-		return;
-	}
-	
+
+		function evaluateBMI(_BMI) {
+			if (_BMI <= 18.5) {
+				log("BMI: " + _BMI + ".    You are underweight (BMI 0～18.5）.");
+			} else if (_BMI > 18.5 && _BMI <= 25) {
+				log("BMI: " + _BMI + ".    Your weight is normal (BMI 18.5～25）.");
+			} else if (_BMI > 25 && _BMI <= 28) {
+				log("BMI: " + _BMI + ".    You are overweight (BMI 25～28）.");
+			} else if (_BMI > 28 && _BMI <= 32) {
+				log("BMI: " + _BMI + ".    You are moderately obese (BMI 28～32）.");
+			} else if (_BMI > 32) {
+				log("BMI: " + _BMI + ".    You are severely obese (BMI 32～ ）.");
+			} else {
+				log("BMI: " + _BMI + ".    Calculation error!");
+			}
+			return;
+		}
+
+		function log(text) {
+			//var s = shw.html() + text;
+			//shw.html(s);
+			shw.html(text);
+			return;
+		}
+
 	</script>
 </body>
+
 </html>
