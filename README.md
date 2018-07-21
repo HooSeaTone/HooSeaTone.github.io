@@ -1,3 +1,3 @@
-# HooSeaTone.github.io
+# HooSeaTone
 
 A Web Page for personal web learning.
