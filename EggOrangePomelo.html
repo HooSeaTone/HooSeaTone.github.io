@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>HooSeaTone</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<body ng-app="OTEHP" ng-controller="MainController" id="MainControllerTag">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container d-flex justify-content-between">
+            <a class="navbar-brand" href="./index.html">
+                主页
+            </a>
+            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./index.html">家园主页</a>
+                    </li>  
+                </ul>
+            </div> -->
+        </div>
+    </nav>
+
+    <main role="main">
+
+        <div class="album py-5 bg-white largerPadding">
+            <div class="container text-center maxWidth60">
+                <h3>鸡蛋、橙子、柚子和竹篮</h3>
+                <p class="lead text-muted text-left">今天是18年的七夕节，晚餐因为拥挤泡汤了，那个她改看肥皂剧了。
+                </p>
+                <p class="lead text-muted text-left">闲来无事，想起了今天群里面看到的一个题目，试着做做看。
+                </p>
+                <p class="lead text-muted text-left"> 现有鸡蛋、橙子、柚子，各自具有不同的重量和数量。又有竹篮一种， 能够盛放的物品，有重量的限制及数量的限制。问：盛放这些物品，最少需要多少竹篮？
+                </p>
+            </div>
+        </div>
+        <div class="album py-5 bg-white largerPadding">
+            <div class="container text-center maxWidth60">
+                <label style="font-size: 1em">鸡蛋重量</label>
+                <input class="form-control" type="number" name="LandDescription" ng-model="tokenInfos[cHOTID_clicked].description" class="form-control"
+                    placeholder="鸡蛋重量" required>
+                <p>其它需要输入的数据</p>
+                <br>
+                <button type="button" class="btn btn-outline-info btn-lg" ng-click="saveDescription()">
+                    输入数据，点击查看结果</button>
+                <div>
+                    <textarea id="myShow" class="form-control textarea">  </textarea>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="album py-5 bg-white largerPadding">
+            <div class="container text-center maxWidth60">
+                <h3>开始动手吧</h3>
+                <p class="lead text-muted text-left">知易行难，真的着手，发现不容易。慢慢来，新手上路嘛。
+                </p>
+                <p class="lead text-muted text-left">首先，如果能够从数学上进行解决，最好不过。推理一个 或若干 公式，真正搞定它。
+                </p>
+                <p class="lead text-muted text-left"> 智商目前有点着急，我们还是通过算法和编程，来解决吧。
+                </p>
+                <p class="lead text-muted text-left"> 第一：基本思路，列出所有可能的行事路径，通过深度优先 或广度优先算法，进行搜索比较，找出最优的方案（所需竹篮最少）。
+                </p>
+                <p class="lead text-muted text-left"> 第二：如果物品数量足够多，竹篮的重量和数量的上限足够大， 那么竹篮的盛放物品的可能的组合种类，就非常多。我们不能一一列出，进行路径组合，那样做， 运算量 过大。然而，方法是有限的，每一步，我们可选的方法是有限的，列出所有方法，来构成所有可行方案。
+                    我们的算法，可以依次在这些方法中进行搜索，找出最优解。
+                </p>
+                <p class="lead text-muted text-left"> 第三：我们需要做出一个
+                    <strong>重要的假设</strong>。 每一步，我们都需要用竹篮，做到盛放时重量最大，或数量最多。这个 假设，目前没有严格的数学证明， 如果这个假设不成立，则我们的程序算法是不成立的。
+                </p>
+                <p class="lead text-muted text-left"> 第四：重复一下我们的方案。1，采用重量最大或数量最多的竹篮 方案，1篮1篮的盛放物品，直到某一种物品不足以支持这个竹篮方案；2，在剩余物品中，继续采用重量最大 或数量最多的竹篮方案，1篮1篮的盛放物品，直到某一种物品不足以支持本步的竹篮方案；3，不断重复，
+                    直到所有物品，都放入了竹篮。
+                </p>
+                <p class="lead text-muted text-left"> 第五：每一步我们只有两个选择，重量最大或数量最多。可以预见，我们的步数也是有限的，物品只有三种。这样，从有限的方案中，进行搜索比较。如果需要搜索的路径的可能 数目并不是很多，我们的搜索算法不需要进行过多优化。
+                </p>
+                <p class="lead text-muted text-left"> 第六：显然，我们需要一个或两个算法模块，在给定三种物品 的重量和数量，以及竹篮的重量上限和数量上限的情况下，得到重量最大的盛放方案和数量最大的盛放方案。
+                </p>
+
+
+
+
+
+            </div>
+        </div>
+
+        <div class="album py-5 bg-white largerPadding">
+            <div class="container text-center maxWidth60">
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="text-muted">
+        <div class="container">
+            <p class="float-right">
+                <a href="" onclick="scrollToTop()">返回顶端</a>
+            </p>
+        </div>
+    </footer>
+
+
+
+
+    <!-- Scripts -->
+
+    <!-- Bootstrap 4 -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Angular JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.min.js"></script>
+
+    <!-- My functions -->
+    <script src="./JS/angularApp.js"></script>
+    <script src="./JS/app.js"></script>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+</body>
+
+
+</html>
